@@ -14,4 +14,4 @@ checkpoints, credentials, or generated videos.
 
 Published image:
 
-`ghcr.io/maartenwilbers/classic-vehicle-studio-runpod:2.0.4`
+`ghcr.io/maartenwilbers/classic-vehicle-studio-runpod:2.0.5`

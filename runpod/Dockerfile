@@ -2,7 +2,7 @@
 FROM pytorch/pytorch@sha256:66b41f1755d9644f6341cf4053cf2beaf3948e2573acf24c3b4c49f55e82f578
 
 ARG CVS_COMMIT=unknown
-ARG RUNPOD_STACK_VERSION=2.0.4
+ARG RUNPOD_STACK_VERSION=2.0.5
 
 LABEL org.opencontainers.image.title="Classic Vehicle Studio M2 RunPod"
 LABEL org.opencontainers.image.version="${RUNPOD_STACK_VERSION}"
@@ -12,6 +12,7 @@ LABEL nl.amklassiek.cvs.base-image="pytorch/pytorch:2.1.2-cuda11.8-cudnn8-devel@
 ENV DEBIAN_FRONTEND=noninteractive \
     CC=gcc-10 \
     CXX=g++-10 \
+    CMAKE_COMMAND=/usr/bin/cmake \
     CUDA_HOME=/usr/local/cuda \
     TORCH_CUDA_ARCH_LIST=8.9 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
@@ -34,6 +35,8 @@ RUN apt-get update \
         wget \
     && test "$(gcc-10 -dumpfullversion)" = "10.5.0" \
     && test "$(g++-10 -dumpfullversion)" = "10.5.0" \
+    && test "$(/usr/bin/cmake --version | awk 'NR == 1 { print $3 }')" = "3.16.3" \
+    && test "$(/usr/bin/ninja --version)" = "1.10.0" \
     && rm -rf /var/lib/apt/lists/*
 
 COPY runpod/requirements.lock /opt/classic-vehicle-studio/requirements.lock

@@ -34,11 +34,11 @@ jobs:
           file: runpod/Dockerfile
           push: true
           tags: |
-            ghcr.io/maartenwilbers/classic-vehicle-studio-runpod:2.0.4
+            ghcr.io/maartenwilbers/classic-vehicle-studio-runpod:2.0.5
             ghcr.io/maartenwilbers/classic-vehicle-studio-runpod:${{ github.sha }}
           labels: |
             org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
             org.opencontainers.image.revision=${{ github.sha }}
           build-args: |
-            CVS_COMMIT=35b5912c80d0261758905b9f1da06423a81cc315
-            RUNPOD_STACK_VERSION=2.0.4
+            CVS_COMMIT=5e95ae1026fbb4fae4fd50623056d2042eb4bb7f
+            RUNPOD_STACK_VERSION=2.0.5
