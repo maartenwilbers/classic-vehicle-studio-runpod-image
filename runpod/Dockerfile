@@ -2,7 +2,7 @@
 FROM pytorch/pytorch@sha256:66b41f1755d9644f6341cf4053cf2beaf3948e2573acf24c3b4c49f55e82f578
 
 ARG CVS_COMMIT=unknown
-ARG RUNPOD_STACK_VERSION=2.0.3
+ARG RUNPOD_STACK_VERSION=2.0.4
 
 LABEL org.opencontainers.image.title="Classic Vehicle Studio M2 RunPod"
 LABEL org.opencontainers.image.version="${RUNPOD_STACK_VERSION}"
